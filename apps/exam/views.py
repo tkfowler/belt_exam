@@ -1,6 +1,4 @@
-from django.shortcuts import render
 
-# Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from models import *
@@ -51,13 +49,14 @@ def log_user_in(request, user):
     return redirect('/home')
 
 def logout(request):
-    request.session.pop('user')
+    request.session.clear()
     return redirect('/')
 
 def add(request):
     return render(request, 'exam/add.html')
 
 def create(request):
+    user = request.session['user']
     Item.objects.create(name=request.POST['item'])
     return redirect('/home')
 

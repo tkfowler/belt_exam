@@ -54,8 +54,8 @@ class Item(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-# class Wishlist(models.Model):
-#     user = models.ForeignKey(User)
-#     item = models.ForeignKey(Item)
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     updated_at = models.DateTimeField(auto_now=True)
+class Wishlist(models.Model):
+    user = models.ForeignKey(User)
+    item = models.ForeignKey(Item)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

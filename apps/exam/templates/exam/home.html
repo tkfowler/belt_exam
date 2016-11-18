@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="head">
-      <h2>Welcome, {{request.session.user.first_name}}</h2>
+      <h2>Welcome, {{request.session.user.username}}</h2>
       <div class='headright'>
         <a href=/logout>Logout</a>
       </div>
@@ -25,7 +25,7 @@
         {% for item in items %}
         <tr>
           <td><a href='/item/{{item.id}}'>{{item.name}}</a></td>
-          <td>{{item.user__id}}</td>
+          <td>{{item.user.name}}</td>
           <td>{{item.created_at}}</td>
           <td><a href ='/delete/{{item.id}}'>Delete</a></td>
         </tr>
@@ -41,8 +41,8 @@
         </tr>
         {% for other in other %}
         <tr>
-          <td><a href='/item/{{item.id}}'>{{other.name}}</a></td>
-          <td>{{other.user}}</td>
+          <td><a href='/item/{{item__id}}'>{{other.name}}</a></td>
+          <td>{{other.user.name}}</td>
           <td>{{other.created_at}}</td>
           <td><a href ='/move/{{item.id}}'>Add to my wishlist</a></td>
         </tr>
